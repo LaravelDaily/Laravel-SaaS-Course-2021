@@ -12,24 +12,14 @@
                     You're on Free Plan.
 
                     <div class="grid grid-cols-3 gap-4 mt-4">
+                        @foreach($plans as $plan)
                         <div>
-                            <h2 class="text-xl">Bronze plan</h2>
-                            $9.99 / month
+                            <h2 class="text-xl">{{ $plan->name }}</h2>
+                            ${{ round($plan->price / 100, 2) }} / month
                             <br />
-                            <x-button type="button" class="mt-4">Subscribe</x-button>
+                            <a href="{{ route('checkout', $plan->id) }}" class="mt-4 inline-flex items-center px-4 py-2 bg-gray-800 border border-transparent rounded-md font-semibold text-xs text-white uppercase tracking-widest hover:bg-gray-700 active:bg-gray-900 focus:outline-none focus:border-gray-900 focus:ring ring-gray-300 disabled:opacity-25 transition ease-in-out duration-150">Subscribe</a>
                         </div>
-                        <div>
-                            <h2 class="text-xl">Silver plan</h2>
-                            $19.99 / month
-                            <br />
-                            <x-button type="button" class="mt-4">Subscribe</x-button>
-                        </div>
-                        <div>
-                            <h2 class="text-xl">Gold plan</h2>
-                            $29.99 / month
-                            <br />
-                            <x-button type="button" class="mt-4">Subscribe</x-button>
-                        </div>
+                        @endforeach
                     </div>
                 </div>
             </div>

@@ -24,6 +24,8 @@ Route::group(['middleware' => 'auth'], function() {
 
     Route::get('billing', [\App\Http\Controllers\BillingController::class, 'index'])
         ->name('billing.index');
+    Route::get('checkout/{plan_id}', [\App\Http\Controllers\CheckoutController::class, 'checkout'])
+        ->name('checkout');
 });
 
 
